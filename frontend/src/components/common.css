@@ -1,0 +1,30 @@
+.logo {
+    display: none;
+}
+.search {
+    display: none;
+}
+
+.home {
+    position: relative; /* Parent container */
+    min-height: 100vh; /* Ensure the container takes at least the viewport height */
+}
+
+.wave-image {
+    position: absolute; /* Absolute positioning to remove the image from the normal flow */
+    bottom: 0; /* Position the image at the bottom */
+    left: 50%; /* Center the image horizontally */
+    transform: translateX(-50%); /* Centering trick to adjust the image to the center */
+    width: 100%; /* Adjust the width of the image as needed */
+    height: auto; /* Maintain the aspect ratio */
+}
+
+@media (min-width: 600px) {
+    .logo {
+        display: inline-block;
+        margin-right: 10px;
+    }
+    .search {
+        display: inline-block;
+    }
+}
