@@ -13,7 +13,7 @@ import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import MenuIcon from '@mui/icons-material/Menu';
 import {SearchBar} from "./Search";
-import './common.css';
+import './style/common.css';
 import logo from '../assets/images/logo.png'
 
 const pages = ['home', 'games', 'profile', 'info'];
@@ -39,7 +39,7 @@ export function Navbar() {
                         variant="h6"
                         noWrap
                         component="a"
-                        href="/"
+                        href="/home"
                         sx={{
                             mr: 2,
                             display: { xs: 'none', md: 'flex' },

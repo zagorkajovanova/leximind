@@ -1,0 +1,24 @@
+.info_section {
+    background-color: whitesmoke;
+    opacity: 0.9;
+    border-radius: 40px;
+}
+
+.info_text {
+    padding: 15px;
+}
+
+.info_header {
+    font-weight: bold;
+    color: #f57d26
+}
+
+.second_header {
+    color: limegreen;
+}
+
+.info_text {
+    text-align: justify;
+    font-size: 20px;
+    font-family: Calibri, sans-serif;
+}
