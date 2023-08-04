@@ -6,10 +6,12 @@ import mk.ukim.finki.leximind.model.Response;
 import mk.ukim.finki.leximind.model.exceptions.InvalidQuestionIdException;
 import mk.ukim.finki.leximind.repository.QuestionRepository;
 import mk.ukim.finki.leximind.service.QuestionService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class QuestionServiceImpl implements QuestionService {
     private final QuestionRepository questionRepository;
 

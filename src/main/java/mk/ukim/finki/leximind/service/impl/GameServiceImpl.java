@@ -6,10 +6,12 @@ import mk.ukim.finki.leximind.model.enums.Level;
 import mk.ukim.finki.leximind.model.exceptions.InvalidGameIdException;
 import mk.ukim.finki.leximind.repository.GameRepository;
 import mk.ukim.finki.leximind.service.GameService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class GameServiceImpl implements GameService {
     private final GameRepository gameRepository;
 
@@ -20,6 +22,11 @@ public class GameServiceImpl implements GameService {
     @Override
     public List<Game> listAllGames() {
         return gameRepository.findAll();
+    }
+
+    @Override
+    public List<Game> findAllGamesOrderedById() {
+        return gameRepository.findAllByOrderByIdAsc();
     }
 
     @Override

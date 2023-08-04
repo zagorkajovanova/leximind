@@ -1,11 +1,18 @@
-import {Navbar} from "../components/Navbar";
-import wave from "../assets/images/wave.png";
-import '../components/style/common.css'
+import {useNavigate} from "react-router-dom";
+import {Navbar} from "../Navbar";
+import wave from "../../assets/images/wave.png";
+import '../style/common.css'
 import {Button, Container, Grid, styled, Typography} from "@mui/material";
-import image from '../assets/images/kids.png';
+import image from '../../assets/images/kids.png';
 import ArrowRightAltOutlinedIcon from '@mui/icons-material/ArrowRightAltOutlined';
 
 export function Home() {
+    const navigate = useNavigate();
+
+    const handleButtonClick = () => {
+        navigate('/games');
+    }
+
     return <div className="page">
         <Navbar />
 
@@ -55,7 +62,15 @@ export function Home() {
                     >
                         Забавно патување за охрабрување на децата со дислексија. Откријте свет на учење преку играње, каде секој чекор предизвикува доверба и радост во читањето и пишувањето!
                     </Typography>
-                    <StyledButton variant="contained" size="large" color="success" endIcon={<ArrowRightAltOutlinedIcon/>}>ЗАПОЧНИ</StyledButton>
+                    <StyledButton
+                        variant="contained"
+                        size="large"
+                        color="success"
+                        endIcon={<ArrowRightAltOutlinedIcon/>}
+                        onClick={handleButtonClick}
+                    >
+                        ЗАПОЧНИ
+                    </StyledButton>
                 </Grid>
                 <Grid item xs={12} sm={6}>
                     <img src={image} alt="landing-pic" width="100%" />

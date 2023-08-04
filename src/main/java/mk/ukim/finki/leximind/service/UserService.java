@@ -2,6 +2,7 @@ package mk.ukim.finki.leximind.service;
 
 import mk.ukim.finki.leximind.model.Game;
 import mk.ukim.finki.leximind.model.User;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;

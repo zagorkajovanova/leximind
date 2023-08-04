@@ -4,10 +4,12 @@ import mk.ukim.finki.leximind.model.Response;
 import mk.ukim.finki.leximind.model.exceptions.InvalidResponseIdException;
 import mk.ukim.finki.leximind.repository.ResponseRepository;
 import mk.ukim.finki.leximind.service.ResponseService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class ResponseServiceImpl implements ResponseService {
     private final ResponseRepository responseRepository;
 

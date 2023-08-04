@@ -6,10 +6,12 @@ import mk.ukim.finki.leximind.model.exceptions.InvalidUserIdException;
 import mk.ukim.finki.leximind.model.exceptions.UserNotFoundException;
 import mk.ukim.finki.leximind.repository.UserRepository;
 import mk.ukim.finki.leximind.service.UserService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;

@@ -1,6 +1,7 @@
 package mk.ukim.finki.leximind.service;
 
 import mk.ukim.finki.leximind.model.Response;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;

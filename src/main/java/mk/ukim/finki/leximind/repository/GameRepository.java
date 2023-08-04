@@ -11,4 +11,5 @@ import java.util.Optional;
 public interface GameRepository extends JpaRepository<Game,Long> {
     List<Game> findAllByTitleContainingIgnoreCase(String searchTerm);
     Optional<Game> findById(Long id);
+    List<Game> findAllByOrderByIdAsc();
 }

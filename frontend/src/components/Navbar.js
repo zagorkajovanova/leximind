@@ -16,7 +16,7 @@ import {SearchBar} from "./Search";
 import './style/common.css';
 import logo from '../assets/images/logo.png'
 
-const pages = ['home', 'games', 'profile', 'info'];
+const pages = ['home', 'games', 'info', 'profile'];
 
 export function Navbar() {
     const [anchorElNav, setAnchorElNav] = useState(null);

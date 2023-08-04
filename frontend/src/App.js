@@ -1,10 +1,11 @@
 import { Route, Routes } from "react-router-dom";
-import { Home } from "./pages/Home";
-import { Games } from "./pages/Games";
-import { Info } from "./pages/Info";
+import { Home } from "./components/pages/Home";
+import { Games } from "./components/pages/Games";
+import { Info } from "./components/pages/Info";
 
 import { ThemeProvider, createTheme } from "@mui/material";
-import { Login } from './pages/Login';
+import { Login } from './components/pages/Login';
+import {Profile} from "./components/pages/Profile";
 
 const theme = createTheme({
     typography: {
@@ -24,6 +25,7 @@ function App() {
                 <Route path="/games" element={<Games/>} />
                 <Route path="/info" element={<Info/>} />
                 <Route path="/login" element={<Login/>} />
+                <Route path="/profile" element={<Profile />} />
             </Routes>
         </ThemeProvider>
     );

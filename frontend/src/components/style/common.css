@@ -10,6 +10,11 @@
     min-height: 100vh; /* Ensure the container takes at least the viewport height */
 }
 
+.games_page {
+    position: relative;
+    min-height: 200vh;
+}
+
 .wave-image {
     position: absolute; /* Absolute positioning to remove the image from the normal flow */
     bottom: 0; /* Position the image at the bottom */

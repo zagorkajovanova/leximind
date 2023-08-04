@@ -10,7 +10,7 @@ import java.util.List;
 @Data
 public class Question {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     String text;
     String image; //text + image for some game, only text and only image for others
