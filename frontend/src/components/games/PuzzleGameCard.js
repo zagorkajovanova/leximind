@@ -17,7 +17,7 @@ export function PuzzleGameCard() {
                 Сложувалка
             </Typography>
             <Typography variant="body2" color="text.secondary" sx={{textAlign: 'justify'}}>
-                Играта се состои од броеви во вид на сложувалка. Ваша задача е да ги подредете ги броевите.
+                Играта се состои од броеви во вид на сложувалка. Подредете ги броевите во растечки редослед.
             </Typography>
         </CardContent>
         <CardActions sx={{justifyContent: 'end'}}>

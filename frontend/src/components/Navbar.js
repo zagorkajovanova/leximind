@@ -9,18 +9,31 @@ import {
     Toolbar,
     Typography,
 } from "@mui/material";
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import {useNavigate} from "react-router-dom";
 import MenuIcon from '@mui/icons-material/Menu';
 import {SearchBar} from "./Search";
 import './style/common.css';
 import logo from '../assets/images/logo.png'
+import Cookies from 'js-cookie';
 
-const pages = ['home', 'games', 'info', 'profile'];
+const pages = ['home', 'games', 'info', 'learn'];
 
 export function Navbar() {
     const [anchorElNav, setAnchorElNav] = useState(null);
+    const [user, setUser] = useState(null);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        checkUserAuthentication();
+    }, [])
+
+    const checkUserAuthentication = () => {
+        const cookieNickname = Cookies.get('nickname');
+        if(cookieNickname) {
+            setUser(cookieNickname);
+        }
+    }
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -84,7 +97,7 @@ export function Navbar() {
                             {pages.map((page) => (
                                 <MenuItem key={page} onClick={() => navigate(`/${page}`)}>
                                     <Typography textAlign="center">
-                                        {page === 'home' ? 'Почетна' : (page === 'games' ? 'Игри' : (page === 'profile' ? 'Профил' : 'За нас'))}
+                                        {page === 'home' ? 'Почетна' : (page === 'games' ? 'Игри' : (page === 'learn' ? 'Научи' : 'За нас'))}
                                     </Typography>
                                 </MenuItem>
                             ))}
@@ -114,9 +127,19 @@ export function Navbar() {
                                 onClick={() => navigate(`/${page}`)}
                                 sx={{ my: 2, color: 'inherit', display: 'block', ml: 2, fontSize: 15 }}
                             >
-                                {page === 'home' ? 'Почетна' : (page === 'games' ? 'Игри' : (page === 'profile' ? 'Профил' : 'За нас'))}
+                                {page === 'home' ? 'Почетна' : (page === 'games' ? 'Игри' : (page === 'learn' ? 'Научи' : 'За нас'))}
                             </Button>
                         ))}
+                        {user ?
+                            (<Button
+                                key={'profile'}
+                                onClick={() => navigate(`/profile`)}
+                                sx={{ my: 2, color: 'inherit', display: 'block', ml: 2, fontSize: 15 }}
+                            >
+                                Профил
+                            </Button>) :
+                            (<div></div>)
+                        }
                     </Box>
 
                     <Box sx={{ flexGrow: 0 }}>
