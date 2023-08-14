@@ -6,6 +6,7 @@ import { Info } from "./components/pages/Info";
 import { ThemeProvider, createTheme } from "@mui/material";
 import { Login } from './components/pages/Login';
 import {Profile} from "./components/pages/Profile";
+import {PlayGame} from "./components/pages/PlayGame";
 
 const theme = createTheme({
     typography: {
@@ -26,6 +27,7 @@ function App() {
                 <Route path="/info" element={<Info/>} />
                 <Route path="/login" element={<Login/>} />
                 <Route path="/profile" element={<Profile />} />
+                <Route path="play" element={<PlayGame />} />
             </Routes>
         </ThemeProvider>
     );

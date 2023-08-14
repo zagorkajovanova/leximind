@@ -1,10 +1,13 @@
+import {useNavigate} from 'react-router-dom';
 import {Card, CardActions, CardContent, CardMedia, styled, Typography} from "@mui/material";
 import star from '../../assets/images/star-svgrepo-com.svg';
 
 export function GameCard({game}) {
+    const navigate = useNavigate();
 
     const handleGameClick = () => {
         console.log(`Playing ${game.title}`);
+        navigate('/play', { state: {game} });
     }
 
     return <CustomCard onClick={handleGameClick}>

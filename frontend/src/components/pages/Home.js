@@ -1,5 +1,5 @@
 import {useNavigate} from "react-router-dom";
-import {Navbar} from "../Navbar";
+import {Navbar} from "../common/Navbar";
 import wave from "../../assets/images/wave.png";
 import '../style/common.css'
 import {Button, Container, Grid, styled, Typography} from "@mui/material";

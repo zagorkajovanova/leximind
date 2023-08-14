@@ -1,4 +1,4 @@
-import {Navbar} from "../Navbar";
+import {Navbar} from "../common/Navbar";
 import wave from "../../assets/images/wave.png";
 import '../style/common.css';
 import kids from '../../assets/images/kids2.png';
@@ -10,7 +10,7 @@ export function Info() {
         <Navbar/>
         <Container
             sx={{
-                mt: 5
+                mt: 4
             }}
         >
             <Grid container spacing={2} sx={{ mt: 3 }}>
@@ -52,10 +52,9 @@ export function Info() {
                     </div>
                 </Grid>
             </Grid>
-            <Grid container sx={{ mt: 1}}>
+            <Grid container>
                 <Grid item xs={12}>
                     <img src={kids} width="100%" alt="kids"/>
-
                 </Grid>
             </Grid>
         </Container>

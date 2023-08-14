@@ -13,8 +13,8 @@ import {useState, useEffect} from "react";
 import {useNavigate} from "react-router-dom";
 import MenuIcon from '@mui/icons-material/Menu';
 import {SearchBar} from "./Search";
-import './style/common.css';
-import logo from '../assets/images/logo.png'
+import '../style/common.css';
+import logo from '../../assets/images/logo.png'
 import Cookies from 'js-cookie';
 
 const pages = ['home', 'games', 'info', 'learn'];

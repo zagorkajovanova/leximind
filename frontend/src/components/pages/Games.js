@@ -4,7 +4,7 @@ import Cookies from 'js-cookie';
 import axios from '../../axios/axios';
 import '../style/common.css';
 import wave from '../../assets/images/wave.png';
-import {Navbar} from "../Navbar";
+import {Navbar} from "../common/Navbar";
 import {GameCard} from "../games/GameCard";
 import {Container, Grid, Typography, Button} from "@mui/material";
 import {PuzzleGameCard} from "../games/PuzzleGameCard";
@@ -63,7 +63,7 @@ export function Games() {
             <Grid container spacing={2}>
                 {games.map((game, index) => (
                     <Grid item xs={12} sm={4} key={`game-${index}`}>
-                        <GameCard game={game} />
+                        <GameCard game={game}/>
                     </Grid>
                 ))}
                 <Grid item xs={12} sm={4}>
