@@ -1,7 +1,7 @@
 import {useLocation, useNavigate} from 'react-router-dom';
 import {useState, useEffect} from 'react';
 import {Navbar} from '../common/Navbar';
-import {Container, Typography, Paper, Button} from "@mui/material";
+import {Container, Typography, Paper} from "@mui/material";
 import {Question} from "../games/Question";
 import img from "../../assets/images/wave.png";
 import '../style/common.css';
@@ -14,7 +14,6 @@ export function PlayGame() {
     const game = location.state.game;
     const [user, setUser] = useState(null);
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-    const [finishButton, setFinishButton] = useState(false);
 
     useEffect(() => {
         getUser();
@@ -22,19 +21,15 @@ export function PlayGame() {
 
     const getUser = () => {
         const nicknameCookie = checkUserAuthenticaton();
-        if(nicknameCookie) {
+        if (nicknameCookie) {
             setUser(nicknameCookie);
         } else {
             navigate('/login');
         }
     }
     const nextQuestion = () => {
-        if(currentQuestionIndex === game.questions.length - 1) {
-            setFinishButton(true);
-        } else {
-            //Increment question index
-            setCurrentQuestionIndex(currentQuestionIndex + 1);
-        }
+        //Increment question index
+        setCurrentQuestionIndex(currentQuestionIndex + 1);
     }
 
     const handleFinishedGame = async () => {
@@ -48,7 +43,7 @@ export function PlayGame() {
                 }
             )
             console.log("Saved finished game.")
-            navigate('/finished-game', { state: {game} })
+            navigate('/finished-game', {state: {game}})
         } catch (error) {
             console.log("Error saving finished game:", error);
         }
@@ -71,17 +66,9 @@ export function PlayGame() {
             </Paper>
         </Container>
         <Container sx={{p: 2,}}>
-            <Question question={game.questions[currentQuestionIndex]} nextQuestion={nextQuestion} />
+            <Question question={game.questions[currentQuestionIndex]} nextQuestion={nextQuestion}
+                      questionNum={game.questions.length} finishGame={handleFinishedGame}/>
         </Container>
-        {finishButton && <Container sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-            <Button variant="contained"
-                    color="success"
-                    size="large"
-                    sx={{ mr: 3, borderRadius: "15px" }}
-                    onClick={handleFinishedGame}
-            >
-                Заврши ја играта</Button>
-        </Container>}
         <img src={img} alt="wave" className="wave-image"/>
     </div>
 }

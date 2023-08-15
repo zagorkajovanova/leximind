@@ -1,6 +1,6 @@
 import {Box, Button, Modal, Typography} from "@mui/material";
 
-export function AnswerModal({ open, handleModalClose, title, description}) {
+export function AnswerModal({open, handleModalClose, title, description, finishGame}) {
     return <Modal
         open={open}
         onClose={handleModalClose}
@@ -11,11 +11,20 @@ export function AnswerModal({ open, handleModalClose, title, description}) {
             <Typography id="modal-modal-title" variant="h6" component="h2">
                 {title}
             </Typography>
-            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            <Typography id="modal-modal-description" sx={{mt: 2}}>
                 {description}
             </Typography>
-            <div style={{ display: "flex", justifyContent: "flex-end" }}>
-                <Button variant="outlined" onClick={handleModalClose}>Затвори</Button>
+            <div style={{display: "flex", justifyContent: "flex-end"}}>
+                {finishGame ?
+                    (<Button variant="outlined" onClick={() => {
+                        handleModalClose();
+                        finishGame();
+                     }
+                }>Затвори</Button>) :
+
+                    (<Button variant="outlined" onClick={handleModalClose}>Затвори</Button>)
+
+                }
             </div>
         </Box>
     </Modal>

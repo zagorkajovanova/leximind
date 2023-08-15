@@ -4,7 +4,9 @@ import '../style/common.css';
 import {useState} from "react";
 import {AnswerModal} from "../common/AnswerModal";
 
-export function Question({question, nextQuestion}) {
+let count = 0;
+
+export function Question({question, nextQuestion, questionNum, finishGame}) {
     const [correctModalOpen, setCorrectModalOpen] = useState(false);
     const handleCorrectModalOpen = () => setCorrectModalOpen(true);
     const handleCorrectModalClose = () => setCorrectModalOpen(false);
@@ -13,12 +15,24 @@ export function Question({question, nextQuestion}) {
     const handleWrongModalOpen = () => setWrongModalOpen(true);
     const handleWrongModalClose = () => setWrongModalOpen(false);
 
+    const [lastQuestionModal, setLastQuestionModal] = useState(false);
+    const handleLastQuestionModalOpen = () => setLastQuestionModal(true);
+    const handleLastQuestionModalClose = () => setLastQuestionModal(false);
+
     const checkQuestionAnswer = (answer) => {
         const correctAnswer = question.correct_answer.text;
 
         if (answer === correctAnswer) {
-            handleCorrectModalOpen();
-            nextQuestion();
+            console.log(`Count: ${count}`)
+            console.log(`questionNum: ${questionNum}`)
+            if (count === questionNum-1) {
+                count = 0;
+                handleLastQuestionModalOpen();
+            } else {
+                count++;
+                handleCorrectModalOpen();
+                nextQuestion();
+            }
         } else {
             handleWrongModalOpen();
         }
@@ -48,10 +62,14 @@ export function Question({question, nextQuestion}) {
             </Paper>
             {correctModalOpen &&
                 <AnswerModal open={correctModalOpen} handleModalClose={handleCorrectModalClose} title={"Точен одговор!"}
-                             description={""}/>}
+                             description={""} finishGame={null} />}
             {wrongModalOpen &&
                 <AnswerModal open={wrongModalOpen} handleModalClose={handleWrongModalClose} title={"Погрешен одговор!"}
-                             description={"Обидете се повторно..."}/>}
+                             description={"Обидете се повторно..."} finishGame={null} />}
+            {lastQuestionModal &&
+                <AnswerModal open={lastQuestionModal} handleModalClose={handleLastQuestionModalClose}
+                             title={"Точен одговор!"} description={""} finishGame={finishGame}/>
+            }
         </Container>
     );
 }
