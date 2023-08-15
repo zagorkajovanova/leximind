@@ -2,6 +2,7 @@ package mk.ukim.finki.leximind.web.rest;
 
 import mk.ukim.finki.leximind.model.Game;
 import mk.ukim.finki.leximind.service.GameService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,6 +22,7 @@ public class GamesController {
     public List<Game> getAllGames() {
         return this.gameService.findAllGamesOrderedById();
     }
+
 
 
 }

@@ -10,6 +10,16 @@
     min-height: 100vh; /* Ensure the container takes at least the viewport height */
 }
 
+.game_page {
+    position: relative;
+    min-height: 110vh;
+}
+
+.finished_page {
+    position: relative;
+    min-height: 100vh;
+}
+
 .games_page {
     position: relative;
     min-height: 180vh;

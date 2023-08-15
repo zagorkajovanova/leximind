@@ -1,6 +1,5 @@
 import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
-import Cookies from 'js-cookie';
 import axios from '../../axios/axios';
 import '../style/common.css';
 import wave from '../../assets/images/wave.png';
@@ -9,6 +8,7 @@ import {GameCard} from "../games/GameCard";
 import {Container, Grid, Typography, Button} from "@mui/material";
 import {PuzzleGameCard} from "../games/PuzzleGameCard";
 import {MemoryGameCard} from "../games/MemoryGameCard";
+import {checkUserAuthenticaton} from "../../service/AuthenticationService";
 
 export function Games() {
     const [games, setGames] = useState([]);
@@ -16,13 +16,13 @@ export function Games() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        checkUserAuthentication();
+        checkUser();
         fetchGames();
         // eslint-disable-next-line
     }, [])
 
-    const checkUserAuthentication = () => {
-        const nicknameCookie = Cookies.get('nickname');
+    const checkUser = () => {
+        const nicknameCookie = checkUserAuthenticaton();
         if(nicknameCookie) {
             setNickname(nicknameCookie);
         } else {

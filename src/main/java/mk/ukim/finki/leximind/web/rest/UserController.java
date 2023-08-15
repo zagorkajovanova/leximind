@@ -1,6 +1,8 @@
 package mk.ukim.finki.leximind.web.rest;
 
+import mk.ukim.finki.leximind.model.Game;
 import mk.ukim.finki.leximind.model.User;
+import mk.ukim.finki.leximind.model.dto.FinishGameRequestDTO;
 import mk.ukim.finki.leximind.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,6 +28,16 @@ public class UserController {
             return ResponseEntity.ok("User saved successfully!");
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error saving user.");
+        }
+    }
+
+    @PostMapping("/finish-game")
+    public ResponseEntity<String> saveFinishedGame(@RequestBody FinishGameRequestDTO request) {
+        try {
+            this.userService.saveFinishedGame(request.getUser(), request.getGame());
+            return ResponseEntity.ok("Saved finished game.");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error saving finished game.");
         }
     }
 }
