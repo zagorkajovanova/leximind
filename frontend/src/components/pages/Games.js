@@ -8,7 +8,7 @@ import {GameCard} from "../games/GameCard";
 import {Container, Grid, Typography, Button} from "@mui/material";
 import {PuzzleGameCard} from "../games/PuzzleGameCard";
 import {MemoryGameCard} from "../games/MemoryGameCard";
-import {checkUserAuthenticaton} from "../../service/AuthenticationService";
+import {checkUserAuthentication} from "../../service/AuthenticationService";
 
 export function Games() {
     const [games, setGames] = useState([]);
@@ -22,7 +22,7 @@ export function Games() {
     }, [])
 
     const checkUser = () => {
-        const nicknameCookie = checkUserAuthenticaton();
+        const nicknameCookie = checkUserAuthentication();
         if(nicknameCookie) {
             setNickname(nicknameCookie);
         } else {

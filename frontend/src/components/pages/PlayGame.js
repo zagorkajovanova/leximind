@@ -5,7 +5,7 @@ import {Container, Typography, Paper} from "@mui/material";
 import {Question} from "../games/Question";
 import img from "../../assets/images/wave.png";
 import '../style/common.css';
-import {checkUserAuthenticaton} from "../../service/AuthenticationService";
+import {checkUserAuthentication} from "../../service/AuthenticationService";
 import axios from '../../axios/axios';
 
 export function PlayGame() {
@@ -20,7 +20,7 @@ export function PlayGame() {
     })
 
     const getUser = () => {
-        const nicknameCookie = checkUserAuthenticaton();
+        const nicknameCookie = checkUserAuthentication();
         if (nicknameCookie) {
             setUser(nicknameCookie);
         } else {

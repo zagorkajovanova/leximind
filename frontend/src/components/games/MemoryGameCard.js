@@ -1,9 +1,13 @@
+import {useNavigate} from "react-router-dom";
 import {Card, CardActions, CardContent, CardMedia, styled, Typography} from "@mui/material";
 import star from "../../assets/images/star-svgrepo-com.svg";
 
 export function MemoryGameCard() {
+    const navigate = useNavigate();
+
     const handleGameClick = () => {
         console.log(`Playing Memory`);
+        navigate("/play/memory");
     }
 
     return <CustomCard onClick={handleGameClick}>
