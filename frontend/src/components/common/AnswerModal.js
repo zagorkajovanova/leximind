@@ -23,7 +23,6 @@ export function AnswerModal({open, handleModalClose, title, description, finishG
                 }>Затвори</Button>) :
 
                     (<Button variant="outlined" onClick={handleModalClose}>Затвори</Button>)
-
                 }
             </div>
         </Box>

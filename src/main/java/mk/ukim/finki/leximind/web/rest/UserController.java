@@ -34,7 +34,8 @@ public class UserController {
     @PostMapping("/finish-game")
     public ResponseEntity<String> saveFinishedGame(@RequestBody FinishGameRequestDTO request) {
         try {
-            this.userService.saveFinishedGame(request.getUser(), request.getGame());
+            User user = this.userService.findByNickname(request.getUser().getNickname());
+            this.userService.saveFinishedGame(user, request.getGame());
             return ResponseEntity.ok("Saved finished game.");
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error saving finished game.");

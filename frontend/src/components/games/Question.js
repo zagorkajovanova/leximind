@@ -23,9 +23,7 @@ export function Question({question, nextQuestion, questionNum, finishGame}) {
         const correctAnswer = question.correct_answer.text;
 
         if (answer === correctAnswer) {
-            console.log(`Count: ${count}`)
-            console.log(`questionNum: ${questionNum}`)
-            if (count === questionNum-1) {
+            if (count === questionNum - 1) {
                 count = 0;
                 handleLastQuestionModalOpen();
             } else {
