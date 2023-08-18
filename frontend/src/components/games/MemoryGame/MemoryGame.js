@@ -187,9 +187,6 @@ export default function MemoryGame() {
                         <span className="bold" style={{ marginLeft: '5px' }}>Најдобар резултат: {bestScore}</span>
                     )}
                 </Box>
-                {/*<div className="score">*/}
-                {/*    */}
-                {/*</div>*/}
             </header>
             <div className="container">
                 {cards.map((card, index) => {

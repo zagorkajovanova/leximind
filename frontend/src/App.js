@@ -9,6 +9,7 @@ import {Profile} from "./components/pages/Profile";
 import {PlayGame} from "./components/pages/PlayGame";
 import {FinishedGame} from "./components/pages/FinishedGame";
 import {PlayMemory} from "./components/pages/PlayMemory";
+import {PlayPuzzle} from "./components/pages/PlayPuzzle";
 
 const theme = createTheme({
     typography: {
@@ -31,6 +32,7 @@ function App() {
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/play" element={<PlayGame />} />
                 <Route path="/play/memory" element={<PlayMemory />} />
+                <Route path="/play/puzzle" element={<PlayPuzzle />} />
                 <Route path="/finished-game" element={<FinishedGame />} />
             </Routes>
         </ThemeProvider>

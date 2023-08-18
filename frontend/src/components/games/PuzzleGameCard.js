@@ -1,9 +1,13 @@
 import {Card, CardActions, CardContent, CardMedia, styled, Typography} from "@mui/material";
+import {useNavigate} from 'react-router-dom';
 import star from "../../assets/images/star-svgrepo-com.svg";
 
 export function PuzzleGameCard() {
+    const navigate = useNavigate();
+
     const handleGameClick = () => {
         console.log(`Playing Puzzle`);
+        navigate("/play/puzzle");
     }
 
     return <CustomCard onClick={handleGameClick}>

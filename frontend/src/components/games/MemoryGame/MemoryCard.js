@@ -13,10 +13,10 @@ const MemoryCard = ({ onClick, card, index, isInactive, isFlipped, isDisabled })
             onClick={handleClick}
         >
             <div className="card-face card-font-face">
-                <img src={cardImage} alt="pokeball" />
+                <img src={cardImage} alt="card" />
             </div>
             <div className="card-face card-back-face">
-                <img src={card.image} alt="pokeball" />
+                <img src={card.image} alt="card" />
             </div>
         </div>
     );
