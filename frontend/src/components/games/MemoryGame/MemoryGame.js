@@ -11,7 +11,7 @@ import {useNavigate} from 'react-router-dom';
 import Card from "./MemoryCard";
 import "./MemoryGame.css";
 import {checkUserAuthentication} from "../../../service/AuthenticationService";
-import axios from "../../../axios/axios";
+import Cookies from "js-cookie";
 
 const uniqueCardsArray = [
     {
@@ -64,7 +64,6 @@ export default function MemoryGame() {
     const [bestScore, setBestScore] = useState(
         JSON.parse(localStorage.getItem("bestScore")) || Number.POSITIVE_INFINITY
     );
-    const [user, setUser] = useState(null);
     const timeout = useRef(null);
 
     const disable = () => {
@@ -109,15 +108,14 @@ export default function MemoryGame() {
 
     const getUser = () => {
         const nicknameCookie = checkUserAuthentication();
-        if (nicknameCookie) {
-            setUser(nicknameCookie);
-        } else {
+        if (!nicknameCookie) {
             navigate('/login');
         }
     }
 
     useEffect(() => {
         getUser();
+        // eslint-disable-next-line
     }, [])
 
     useEffect(() => {
@@ -155,11 +153,13 @@ export default function MemoryGame() {
 
     const handleFinishedGame = async () => {
         const game = {
-            id: Math.random(),
             title: "Меморија",
-            points: 30
+            points: 30,
         }
-        //TODO: save finished game in database
+        const gameTitle = game.title;
+        const cookieEnc = encodeURIComponent(gameTitle);
+        const thirtyMinutesFromNow = new Date(new Date().getTime() + 30 * 60 * 1000);
+        Cookies.set('memory-game', cookieEnc, {expires: thirtyMinutesFromNow, path: '/'});
         navigate('/finished-game', {state: {game}})
     }
 

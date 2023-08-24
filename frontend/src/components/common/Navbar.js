@@ -9,6 +9,7 @@ import {
     Toolbar,
     Typography,
 } from "@mui/material";
+import AccountCircleTwoToneIcon from '@mui/icons-material/AccountCircleTwoTone';
 import {useState, useEffect} from "react";
 import {useNavigate} from "react-router-dom";
 import MenuIcon from '@mui/icons-material/Menu';
@@ -30,7 +31,7 @@ export function Navbar() {
 
     const checkUserAuthentication = () => {
         const cookieNickname = Cookies.get('nickname');
-        if(cookieNickname) {
+        if (cookieNickname) {
             setUser(cookieNickname);
         }
     }
@@ -55,7 +56,7 @@ export function Navbar() {
                         href="/home"
                         sx={{
                             mr: 2,
-                            display: { xs: 'none', md: 'flex' },
+                            display: {xs: 'none', md: 'flex'},
                             fontWeight: 700,
                             letterSpacing: '.3rem',
                             color: 'inherit',
@@ -65,7 +66,7 @@ export function Navbar() {
                         LexiMind
                     </Typography>
 
-                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+                    <Box sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}}}>
                         <IconButton
                             size="large"
                             aria-label="account of current user"
@@ -74,7 +75,7 @@ export function Navbar() {
                             onClick={handleOpenNavMenu}
                             color="inherit"
                         >
-                            <MenuIcon />
+                            <MenuIcon/>
                         </IconButton>
                         <Menu
                             id="menu-appbar"
@@ -91,7 +92,7 @@ export function Navbar() {
                             open={Boolean(anchorElNav)}
                             onClose={handleCloseNavMenu}
                             sx={{
-                                display: { xs: 'block', md: 'none' },
+                                display: {xs: 'block', md: 'none'},
                             }}
                         >
                             {pages.map((page) => (
@@ -110,7 +111,7 @@ export function Navbar() {
                         href=""
                         sx={{
                             mr: 2,
-                            display: { xs: 'flex', md: 'none' },
+                            display: {xs: 'flex', md: 'none'},
                             flexGrow: 1,
                             fontWeight: 800,
                             letterSpacing: '.3rem',
@@ -120,30 +121,23 @@ export function Navbar() {
                     >
                         LexiMind
                     </Typography>
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center' }}>
+                    <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}, justifyContent: 'center'}}>
                         {pages.map((page) => (
                             <Button
                                 key={page}
                                 onClick={() => navigate(`/${page}`)}
-                                sx={{ my: 2, color: 'inherit', display: 'block', ml: 2, fontSize: 15 }}
+                                sx={{my: 2, color: 'inherit', display: 'block', ml: 2, fontSize: 15}}
                             >
                                 {page === 'home' ? 'Почетна' : (page === 'games' ? 'Игри' : (page === 'learn' ? 'Научи' : 'За нас'))}
                             </Button>
                         ))}
-                        {user ?
-                            (<Button
-                                key={'profile'}
-                                onClick={() => navigate(`/profile`)}
-                                sx={{ my: 2, color: 'inherit', display: 'block', ml: 2, fontSize: 15 }}
-                            >
-                                Профил
-                            </Button>) :
-                            (<div></div>)
-                        }
                     </Box>
-
-                    <Box sx={{ flexGrow: 0 }}>
-                        <SearchBar />
+                    <Box sx={{flexGrow: 0, display: "flex", justifyContent: "center", alignContent: "center"}}>
+                        { user && <AccountCircleTwoToneIcon
+                            fontSize="large"
+                            sx={{ cursor: 'pointer', mt: "4px", mr: 1 }}
+                            onClick={() => navigate('/profile')} /> }
+                        <SearchBar/>
                     </Box>
                 </Toolbar>
             </Container>

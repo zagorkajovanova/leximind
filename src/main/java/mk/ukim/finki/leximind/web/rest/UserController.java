@@ -41,4 +41,14 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error saving finished game.");
         }
     }
+
+    @GetMapping("/{nickname}")
+    public ResponseEntity<User> getUserObject(@PathVariable String nickname) {
+        User user = this.userService.findByNickname(nickname);
+        if(user != null) {
+            return ResponseEntity.ok(user);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }

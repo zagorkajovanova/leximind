@@ -10,6 +10,7 @@ import {
     Modal,
     Typography
 } from "@mui/material";
+import Cookies from "js-cookie";
 
 export function PuzzleGame() {
     const [showModal, setShowModal] = useState(false);
@@ -25,7 +26,10 @@ export function PuzzleGame() {
             title: "Сложувалка",
             points: 30
         }
-        //TODO: save finished game in database
+        const gameTitle = game.title;
+        const cookieEnc = encodeURIComponent(gameTitle);
+        const thirtyMinutesFromNow = new Date(new Date().getTime() + 30 * 60 * 1000);
+        Cookies.set('puzzle-game', cookieEnc, {expires: thirtyMinutesFromNow, path: '/'});
         navigate('/finished-game', {state: {game}})
     }
 
