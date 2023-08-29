@@ -10,6 +10,7 @@ import {PlayGame} from "./components/pages/PlayGame";
 import {FinishedGame} from "./components/pages/FinishedGame";
 import {PlayMemory} from "./components/pages/PlayMemory";
 import {PlayPuzzle} from "./components/pages/PlayPuzzle";
+import {Learn} from "./components/pages/Learn";
 
 const theme = createTheme({
     typography: {
@@ -30,6 +31,7 @@ function App() {
                 <Route path="/info" element={<Info/>} />
                 <Route path="/login" element={<Login/>} />
                 <Route path="/profile" element={<Profile />} />
+                <Route path="/learn" element={<Learn />} />
                 <Route path="/play" element={<PlayGame />} />
                 <Route path="/play/memory" element={<PlayMemory />} />
                 <Route path="/play/puzzle" element={<PlayPuzzle />} />
