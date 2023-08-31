@@ -45,7 +45,16 @@ const StyledInputBase = styled(InputBase)(({theme}) => ({
     },
 }));
 
-export function SearchBar() {
+export function SearchBar({ games, setFilteredGames }) {
+
+    const handleSearch = (event) => {
+        const searchText = event.target.value.toLowerCase();
+        const filteredGames = games.filter((game) =>
+            game.title.toLowerCase().includes(searchText)
+        );
+        setFilteredGames(filteredGames);
+    }
+
     return <Search className="search">
         <SearchIconWrapper>
             <SearchIcon/>
@@ -53,6 +62,7 @@ export function SearchBar() {
         <StyledInputBase
             placeholder="Search…"
             inputProps={{'aria-label': 'search'}}
+            onChange={handleSearch}
         />
     </Search>
 }

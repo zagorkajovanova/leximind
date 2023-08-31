@@ -1,7 +1,6 @@
 import {
     AppBar,
     Box,
-    Button,
     Container,
     IconButton,
     Menu,
@@ -9,16 +8,16 @@ import {
     Toolbar,
     Typography,
 } from "@mui/material";
-import AccountCircleTwoToneIcon from '@mui/icons-material/AccountCircleTwoTone';
 import {useState, useEffect} from "react";
 import {useNavigate} from "react-router-dom";
 import MenuIcon from '@mui/icons-material/Menu';
-import {SearchBar} from "./Search";
 import '../style/common.css';
 import logo from '../../assets/images/logo.png'
 import Cookies from 'js-cookie';
+import {UserAvatar} from "./UserAvatar";
+import {NavbarPageButton} from "./NavbarPageButton";
 
-const pages = ['home', 'games', 'info', 'learn'];
+const pages = ['home', 'games', 'learn', 'info'];
 
 export function Navbar() {
     const [anchorElNav, setAnchorElNav] = useState(null);
@@ -121,23 +120,13 @@ export function Navbar() {
                     >
                         LexiMind
                     </Typography>
-                    <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}, justifyContent: 'center'}}>
+                    <Box sx={{ flexGrow: 1, display: {xs: 'none', md: 'flex'}, justifyContent: 'center' }}>
                         {pages.map((page) => (
-                            <Button
-                                key={page}
-                                onClick={() => navigate(`/${page}`)}
-                                sx={{my: 2, color: 'inherit', display: 'block', ml: 2, fontSize: 15}}
-                            >
-                                {page === 'home' ? 'Почетна' : (page === 'games' ? 'Игри' : (page === 'learn' ? 'Научи' : 'За нас'))}
-                            </Button>
+                            <NavbarPageButton page={page} />
                         ))}
                     </Box>
                     <Box sx={{flexGrow: 0, display: "flex", justifyContent: "center", alignContent: "center"}}>
-                        { user && <AccountCircleTwoToneIcon
-                            fontSize="large"
-                            sx={{ cursor: 'pointer', mt: "4px", mr: 1 }}
-                            onClick={() => navigate('/profile')} /> }
-                        <SearchBar/>
+                        { user && <UserAvatar user={user} handleClick={() => navigate('/profile')} /> }
                     </Box>
                 </Toolbar>
             </Container>

@@ -2,7 +2,6 @@ import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import axios from '../../axios/axios';
 import '../style/common.css';
-import wave from '../../assets/images/wave.png';
 import {Navbar} from "../common/Navbar";
 import {GameCard} from "../games/GameCard";
 import {Container, Grid, Typography, Button} from "@mui/material";
@@ -74,6 +73,5 @@ export function Games() {
                 </Grid>
             </Grid>
         </Container>
-        <img src={wave} alt="wave" className="wave-image"/>
     </div>
 }

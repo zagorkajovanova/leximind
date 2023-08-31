@@ -15,7 +15,7 @@ export function Learn() {
                     <img src={ad1} style={imageStyle} alt="ad" />
                 </Grid>
                 <Grid item sm={8}>
-                    <Typography variant="h5">Научи повеќе</Typography>
+                    <Typography variant="h5" fontWeight="bold">Научи повеќе</Typography>
 
                     <LearnCard
                         title="Што претставува дислексијата?"
@@ -34,6 +34,12 @@ export function Learn() {
                         description="Ако кажеме дека дислексијата е синдром – што подразбираме под синдром?..."
                         image="https://static01.nyt.com/images/2019/10/07/well/07klass-school/07klass-school-superJumbo.jpg"
                         link="https://www.britishcouncil.mk/sites/default/files/rabota_so_uchenici_so_disleksija.pdf"
+                    />
+                    <LearnCard
+                        title="Еден поинаков свет - Дислексија"
+                        description="Ако вашето дете или ученик/ученичка има потешкотии со читањето и пишувањето, не значи дека се работи за мрзливост..."
+                        image="https://imgix.bustle.com/fatherly/2021/08/signs-of-dyslexia.jpg?w=374&h=196&fit=crop&crop=focalpoint&auto=format%2Ccompress&fp-x=0.6853&fp-y=0.4442"
+                        link="https://smajlimk.home.blog/2019/03/06/poinakov-svet-disleksija/"
                     />
                 </Grid>
             </Grid>
