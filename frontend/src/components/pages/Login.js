@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import Cookies from 'js-cookie';
-import axios from '../../axios/axios';
+import axios from '../../service/axios';
 import {Navbar} from "../common/Navbar";
 import {Button, Container, Grid} from "@mui/material";
 import "../style/common.css";

@@ -6,7 +6,7 @@ import {Question} from "../games/Question";
 import img from "../../assets/images/wave.png";
 import '../style/common.css';
 import {checkUserAuthentication} from "../../service/AuthenticationService";
-import axios from '../../axios/axios';
+import axios from '../../service/axios';
 
 export function PlayGame() {
     const location = useLocation();

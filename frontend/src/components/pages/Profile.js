@@ -4,7 +4,7 @@ import {Navbar} from "../common/Navbar";
 import "../style/common.css";
 import "../style/profile.css";
 import {Container, Grid, Paper, styled, Typography} from "@mui/material";
-import axios from "../../axios/axios";
+import axios from "../../service/axios";
 import star from '../../assets/images/star-svgrepo-com.svg';
 import avatar from '../../assets/images/user2.png';
 import FinishedGamesAccordion from "../common/FinishedGamesAccordion";

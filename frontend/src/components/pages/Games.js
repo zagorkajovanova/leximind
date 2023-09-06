@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
-import axios from '../../axios/axios';
+import axios from '../../service/axios';
 import '../style/common.css';
 import {Navbar} from "../common/Navbar";
 import {GameCard} from "../games/GameCard";

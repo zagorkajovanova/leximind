@@ -77,7 +77,6 @@ export function Home() {
                 </Grid>
             </Grid>
         </Container>
-
         <img src={wave} alt="wave" className="wave-image"/>
     </div>
 }
