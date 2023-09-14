@@ -9,7 +9,7 @@ import {
     Typography,
 } from "@mui/material";
 import {useState, useEffect} from "react";
-import {useNavigate} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import MenuIcon from '@mui/icons-material/Menu';
 import '../style/common.css';
 import logo from '../../assets/images/logo.png'
@@ -23,6 +23,8 @@ export function Navbar() {
     const [anchorElNav, setAnchorElNav] = useState(null);
     const [user, setUser] = useState(null);
     const navigate = useNavigate();
+    const location = useLocation();
+    const currentPage = location.pathname.split('/')[1];
 
     useEffect(() => {
         checkUserAuthentication();
@@ -122,7 +124,7 @@ export function Navbar() {
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: {xs: 'none', md: 'flex'}, justifyContent: 'center' }}>
                         {pages.map((page) => (
-                            <NavbarPageButton page={page} />
+                            <NavbarPageButton page={page} currentPage={currentPage} />
                         ))}
                     </Box>
                     <Box sx={{flexGrow: 0, display: "flex", justifyContent: "center", alignContent: "center"}}>

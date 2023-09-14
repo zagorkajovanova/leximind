@@ -6,26 +6,32 @@ import games from '../../assets/images/navbar/icons8-games-30.png';
 import info from '../../assets/images/navbar/icons8-info-30.png';
 import learn from '../../assets/images/navbar/icons8-reading-30.png';
 
-export function NavbarPageButton({ page }) {
+export function NavbarPageButton({page, currentPage}) {
     const [pageName, setPageName] = useState(null);
     const [icon, setIcon] = useState(null);
     const navigate = useNavigate();
+    const isActive = page === currentPage;
 
     useEffect(() => {
         const currentPage = page === 'home' ? 'Почетна' : (page === 'games' ? 'Игри' : (page === 'learn' ? 'Научи' : 'За нас'));
         setPageName(currentPage);
 
-        const currentIcon = page === 'home' ? <img src={home} alt="home" /> :
-            (page === 'games' ? <img src={games} alt="games" /> : (page === 'learn' ? <img src={learn} alt="learn" /> : <img src={info} alt="info" />));
+        const currentIcon = page === 'home' ? <img src={home} alt="home"/> :
+            (page === 'games' ? <img src={games} alt="games"/> : (page === 'learn' ? <img src={learn} alt="learn"/> :
+                <img src={info} alt="info"/>));
         setIcon(currentIcon);
     }, [page])
 
     return <IconButton
-                   key={page}
-                   onClick={() => navigate(`/${page}`)}
-                   sx={{my: 2, color: 'inherit',ml: 2, fontSize: 15}}
+        key={page}
+        onClick={() => navigate(`/${page}`)}
+        sx={{
+            my: 2,
+            color: 'inherit',
+            ml: 2, fontSize: 15
+        }}
     >
         {icon}
-        <Typography sx={{ ml: 1 }}>{pageName}</Typography>
+        <Typography sx={{ml: 1}}>{pageName}</Typography>
     </IconButton>
 }

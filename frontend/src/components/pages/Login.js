@@ -18,9 +18,9 @@ export function Login() {
 
     const handleLogin = () => {
         //Save nickname in cookie
-        const cookieEnc = encodeURIComponent(user);
+        // const cookieEnc = encodeURIComponent(user);
         const thirtyMinutesFromNow = new Date(new Date().getTime() + 30 * 60 * 1000);
-        Cookies.set('nickname', cookieEnc, {expires: thirtyMinutesFromNow, path: '/'});
+        Cookies.set('nickname', user, {expires: thirtyMinutesFromNow, path: '/'});
 
         saveUser().then(
             navigate('/games')
