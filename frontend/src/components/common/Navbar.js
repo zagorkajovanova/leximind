@@ -1,6 +1,6 @@
 import {
     AppBar,
-    Box,
+    Box, Button,
     Container,
     IconButton,
     Menu,
@@ -128,6 +128,13 @@ export function Navbar() {
                         ))}
                     </Box>
                     <Box sx={{flexGrow: 0, display: "flex", justifyContent: "center", alignContent: "center"}}>
+                        { !user && <Button startIcon={<UserAvatar/>} onClick={() => navigate('/login')}>
+                            <Typography
+                                sx={{ fontWeight: 600, letterSpacing: 1, ml: 1, color: 'black' }}
+                            >
+                                Најава
+                            </Typography>
+                        </Button> }
                         { user && <UserAvatar user={user} handleClick={() => navigate('/profile')} /> }
                     </Box>
                 </Toolbar>

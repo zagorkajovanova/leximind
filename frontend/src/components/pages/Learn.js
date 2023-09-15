@@ -3,6 +3,7 @@ import {Container, Grid, Typography} from "@mui/material";
 import LearnCard from "../common/LearnCard";
 import ad1 from '../../assets/images/ad1.png';
 import ad2 from '../../assets/images/ad2.jpg';
+import ad3 from '../../assets/images/ad3.jpg';
 
 export function Learn() {
     return <div>
@@ -11,8 +12,8 @@ export function Learn() {
             <Grid spacing={3} container>
                 <Grid item sm={4} >
                     <img src={ad2} style={imageStyle} alt="ad" />
-
                     <img src={ad1} style={imageStyle} alt="ad" />
+                    <img src={ad3} style={imageStyle} alt="ad" />
                 </Grid>
                 <Grid item sm={8}>
                     <Typography variant="h5" fontWeight="bold">Научи повеќе</Typography>
