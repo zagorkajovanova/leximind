@@ -42,6 +42,12 @@ export function Learn() {
                         image="https://imgix.bustle.com/fatherly/2021/08/signs-of-dyslexia.jpg?w=374&h=196&fit=crop&crop=focalpoint&auto=format%2Ccompress&fp-x=0.6853&fp-y=0.4442"
                         link="https://smajlimk.home.blog/2019/03/06/poinakov-svet-disleksija/"
                     />
+                    <LearnCard
+                        title="Како да му се помогне на дете со дислексија"
+                        description="Тешкотиите кои можат да се појават во текот на совладувањето на читањето се многубројни, па оттука и терапијата на дислексија е сложена..."
+                        image="https://images.everydayhealth.com/images/neurology/dyslexia/dyslexia-treatment-and-support-rm-722x406.jpg"
+                        link="https://pedijatar.mk/m-r-ivana-urdarevik-logoped-kako-da-mu-se-pomogne-na-dete-so-disleksija-terapijata-e-slozhena-potrebna-e-sorabotka-so-roditelite-i-nastavnitsite/"
+                    />
                 </Grid>
             </Grid>
         </Container>

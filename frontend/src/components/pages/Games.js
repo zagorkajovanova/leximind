@@ -8,6 +8,7 @@ import {Container, Grid, Typography, Button} from "@mui/material";
 import {PuzzleGameCard} from "../games/PuzzleGameCard";
 import {MemoryGameCard} from "../games/MemoryGameCard";
 import {checkUserAuthentication} from "../../service/AuthenticationService";
+import wave from '../../assets/images/wave.png';
 
 export function Games() {
     const [games, setGames] = useState([]);
@@ -73,5 +74,6 @@ export function Games() {
                 </Grid>
             </Grid>
         </Container>
+        <img src={wave} alt="wave" className="wave-image"/>
     </div>
 }

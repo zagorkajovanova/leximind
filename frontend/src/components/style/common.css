@@ -12,7 +12,7 @@
 
 .game_page {
     position: relative;
-    min-height: 110vh;
+    min-height: 100vh;
 }
 
 .finished_page {
@@ -22,7 +22,7 @@
 
 .games_page {
     position: relative;
-    min-height: 180vh;
+    min-height: 160vh;
 }
 
 .wave-image {
