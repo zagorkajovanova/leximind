@@ -115,7 +115,7 @@ export function Profile() {
                             </Grid>
                             <CustomGridItem item sm={12}>
                                 <Typography variant="h4">
-                                    Завршени игри: 9 / {countFinishedGames()}
+                                    Завршени игри: {countFinishedGames()} / 9
                                 </Typography>
                             </CustomGridItem>
 
@@ -144,6 +144,7 @@ const CustomGridItem = styled(Grid)({
     textAlign: "center",
     boxShadow: '2px 12px 15px #999',
     marginBottom: "15px",
+    width: "435px"
 })
 
 const CustomContainer = styled(Container)({

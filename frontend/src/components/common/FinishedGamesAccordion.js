@@ -20,18 +20,24 @@ export default function FinishedGamesAccordion({games}) {
                     <Typography>Преглед на завршени игри</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <ol>
-                        {games.map((game, index) => (
-                            <li key={index}>
-                                <Typography>
-                                    {game.title}
-                                    <img src={star} width="20px" style={{ marginLeft: '5px', marginRight: '4px' }}  alt="star"/>
-                                    {game.points}
-                                </Typography>
-                            </li>
-                        ))}
+                    {games.length === 0 ?
+                        (
+                            <Typography color="grey">Немате завршени игри</Typography>
+                        ) : (
+                            <ol>
+                                {games.map((game, index) => (
+                                    <li key={index}>
+                                        <Typography>
+                                            {game.title}
+                                            <img src={star} width="20px" style={{ marginLeft: '5px', marginRight: '4px' }}  alt="star"/>
+                                            {game.points}
+                                        </Typography>
+                                    </li>
+                                ))}
 
-                    </ol>
+                            </ol>
+                        )
+                    }
                 </AccordionDetails>
             </CustomAccordion>
         </div>
